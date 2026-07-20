@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Custom Color Palettes for the Warborn Design System */
+  --color-warborn-light-bg: #FFFFFF;
+  --color-warborn-light-stage: #FAFAFA;
+  --color-warborn-light-panel: #F4F4F5;
+  --color-warborn-light-text-primary: #18181B;
+  --color-warborn-light-text-secondary: rgba(24,24,27,0.65);
+  --color-warborn-light-text-muted: rgba(24,24,27,0.45);
+  --color-warborn-light-text-dim: rgba(24,24,27,0.30);
+  --color-warborn-light-border-subtle: rgba(0,0,0,0.05);
+  --color-warborn-light-border-medium: rgba(0,0,0,0.08);
+
+  --color-warborn-dark-bg: #0A0A0A;
+  --color-warborn-dark-stage: #0C0C0C;
+  --color-warborn-dark-panel: #141414;
+  --color-warborn-dark-text-primary: #EDEDED;
+  --color-warborn-dark-text-secondary: rgba(255,255,255,0.50);
+  --color-warborn-dark-text-muted: rgba(255,255,255,0.40);
+  --color-warborn-dark-text-dim: rgba(255,255,255,0.30);
+  --color-warborn-dark-border-subtle: rgba(255,255,255,0.05);
+  --color-warborn-dark-border-medium: rgba(255,255,255,0.10);
+}
+
+/* Custom global overrides */
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom clean minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.2);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.4);
+}
+
+/* Selection Highlight */
+::selection {
+  background: rgba(128, 128, 128, 0.15);
+  color: inherit;
+}
+
+/* Custom display class */
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+}

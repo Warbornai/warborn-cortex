@@ -1,0 +1,62 @@
+[
+  {
+    "id": "dec_wriknmr",
+    "missionId": "mission_infra_monitor",
+    "timestamp": "2026-07-20T06:16:52.816Z",
+    "decisionType": "Reliability Backoff Routing",
+    "choice": "Transition state to RETRYING",
+    "explanation": "Third-party agent routing failed. Attempting retry sequence (Attempt 1 of 3) with exponential backoff.",
+    "confidence": 0.91,
+    "evidence": [],
+    "alternatives": [],
+    "riskLevel": "low"
+  },
+  {
+    "id": "dec_bmj20ou",
+    "missionId": "mission_infra_monitor",
+    "timestamp": "2026-07-20T06:17:02.831Z",
+    "decisionType": "Rate Limiter Defense",
+    "choice": "Transition state to BLOCKED",
+    "explanation": "API endpoint rate limit reached. Auto-blocking mission execution for cooling period to avoid service lockout.",
+    "confidence": 0.99,
+    "evidence": [],
+    "alternatives": [],
+    "riskLevel": "medium"
+  },
+  {
+    "id": "dec_o19plck",
+    "missionId": "mission_infra_monitor",
+    "timestamp": "2026-07-20T06:17:12.841Z",
+    "decisionType": "Heuristics Self-Healing",
+    "choice": "Transition to RECOVERING",
+    "explanation": "Network blockage detected during network buffers audit. Spinning up secondary virtual socket proxy to clear blockage.",
+    "confidence": 0.88,
+    "evidence": [],
+    "alternatives": [],
+    "riskLevel": "medium"
+  },
+  {
+    "id": "dec_cmqecz4",
+    "missionId": "mission_infra_monitor",
+    "timestamp": "2026-07-20T06:18:07.927Z",
+    "decisionType": "Mission Completion",
+    "choice": "Transition state to COMPLETED",
+    "explanation": "All workflow vertices completed with status COMPLETED. Integrity reports generated successfully.",
+    "confidence": 1,
+    "evidence": [],
+    "alternatives": [],
+    "riskLevel": "low"
+  },
+  {
+    "id": "dec_aomxyb0",
+    "missionId": "mission_infra_monitor",
+    "timestamp": "2026-07-20T06:18:12.943Z",
+    "decisionType": "Playbook Extraction Heuristic",
+    "choice": "Store playbook template to L2 Memory",
+    "explanation": "Successfully verified mission success metrics. Extracted 4 steps. Saved to long-term database knowledge index.",
+    "confidence": 0.97,
+    "evidence": [],
+    "alternatives": [],
+    "riskLevel": "low"
+  }
+]

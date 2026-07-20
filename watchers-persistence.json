@@ -1,0 +1,26 @@
+[
+  {
+    "id": "watch_github_core",
+    "name": "GitHub Repository Watcher",
+    "type": "github",
+    "target": "git-push:main",
+    "status": "active",
+    "rule": "Deploy Build & Deploy Secure SaaS Applet on main branch commit push"
+  },
+  {
+    "id": "watch_crm_onboard",
+    "name": "CRM Webhook Watcher",
+    "type": "crm",
+    "target": "POST /webhooks/onboard",
+    "status": "active",
+    "rule": "Formulate Intellishield Research Pipeline for newly onboarded tenants"
+  },
+  {
+    "id": "watch_db_keys",
+    "name": "Database API Key Insertion Sentinel",
+    "type": "database",
+    "target": "INSERT:api_keys",
+    "status": "active",
+    "rule": "Conduct credentials risk scan when new API keys are added"
+  }
+]

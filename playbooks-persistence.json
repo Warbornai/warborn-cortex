@@ -1,0 +1,16 @@
+[
+  {
+    "id": "playbook_inursbm",
+    "name": "Playbook - Infrastructure Health & Self-Healing",
+    "description": "Extracted optimal pipeline sequence from mission 'Infrastructure Health & Self-Healing'. Completed with 100% success score.",
+    "steps": [
+      "Query Gateway Heartbeats",
+      "Compute Heap Allocation Slopes",
+      "Validate Isolation Sandboxes",
+      "Synthesize SLA Compliance Report"
+    ],
+    "extractedFromMissionId": "mission_infra_monitor",
+    "successScore": 0.9,
+    "createdAt": "2026-07-20T06:18:12.943Z"
+  }
+]

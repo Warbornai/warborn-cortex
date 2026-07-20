@@ -1,0 +1,6 @@
+{
+  "name": "Warborn Cortex",
+  "description": "The central orchestration operating system for specialized intelligence, context memory engines, and modular multi-agent sandboxes.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

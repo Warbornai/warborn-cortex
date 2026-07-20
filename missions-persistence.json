@@ -1,0 +1,350 @@
+[
+  [
+    "mission_saas_builder",
+    {
+      "id": "mission_saas_builder",
+      "name": "Build & Deploy Secure SaaS Applet",
+      "description": "Decomposes the SaaS specification, provisions database nodes, executes parallel security code verification, requests architectural audit, and deploys verified codebase.",
+      "state": "paused",
+      "priority": "critical",
+      "workflow": {
+        "id": "wf_saas_builder",
+        "name": "Autonomous SaaS Development Lifecycle",
+        "version": "v2.1.0",
+        "nodes": [
+          {
+            "id": "node_1",
+            "label": "Decompose Spec & Plan Goals",
+            "type": "sequential",
+            "status": "completed",
+            "assignedAgent": "Sentinel Agent",
+            "duration": 1200
+          },
+          {
+            "id": "node_2",
+            "label": "Provision Database Nodes",
+            "type": "sequential",
+            "status": "completed",
+            "assignedAgent": "Operator Agent",
+            "duration": 800
+          },
+          {
+            "id": "node_3",
+            "label": "Execute Code Generation",
+            "type": "parallel",
+            "status": "running",
+            "assignedAgent": "Code Agent",
+            "duration": 3400
+          },
+          {
+            "id": "node_4",
+            "label": "Run Automated Security Verification",
+            "type": "parallel",
+            "status": "pending",
+            "assignedAgent": "Sentinel Agent"
+          },
+          {
+            "id": "node_5",
+            "label": "Manual Human-in-the-Loop Sign-off",
+            "type": "conditional",
+            "status": "waiting",
+            "assignedAgent": "Architect Agent"
+          },
+          {
+            "id": "node_6",
+            "label": "Perform Edge Sandbox Deployment",
+            "type": "sub-mission",
+            "status": "pending",
+            "assignedAgent": "Operator Agent"
+          }
+        ],
+        "edges": [
+          {
+            "from": "node_1",
+            "to": "node_2"
+          },
+          {
+            "from": "node_2",
+            "to": "node_3"
+          },
+          {
+            "from": "node_2",
+            "to": "node_4"
+          },
+          {
+            "from": "node_3",
+            "to": "node_5"
+          },
+          {
+            "from": "node_4",
+            "to": "node_5"
+          },
+          {
+            "from": "node_5",
+            "to": "node_6"
+          }
+        ]
+      },
+      "triggers": [
+        {
+          "id": "trig_saas_git",
+          "type": "git",
+          "value": "git-push:main",
+          "isActive": true
+        },
+        {
+          "id": "trig_saas_cron",
+          "type": "cron",
+          "value": "0 9 * * 1-5",
+          "isActive": false
+        }
+      ],
+      "approvals": [
+        {
+          "id": "app_saas_architect",
+          "stepId": "node_5",
+          "stepName": "Manual Human-in-the-Loop Sign-off",
+          "status": "pending",
+          "requestedAt": "2026-07-18T06:50:00Z",
+          "comments": "Pending validation of database schema constraints and vector cluster connections."
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "art_schema_sql",
+          "name": "Database Schema Blueprint",
+          "type": "config",
+          "size": "12.4 KB",
+          "hash": "SHA256:0F4A7C93...",
+          "lineage": [
+            "node_2"
+          ],
+          "createdAt": "2026-07-18T06:45:12Z",
+          "content": "CREATE TABLE IF NOT EXISTS users (\n  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  email VARCHAR(255) UNIQUE NOT NULL,\n  role VARCHAR(50) DEFAULT 'user',\n  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE IF NOT EXISTS api_keys (\n  id UUID PRIMARY KEY,\n  user_id UUID REFERENCES users(id) ON DELETE CASCADE,\n  hashed_key VARCHAR(255) NOT NULL,\n  is_active BOOLEAN DEFAULT true\n);"
+        },
+        {
+          "id": "art_architecture_pdf",
+          "name": "Comprehensive Architecture Specification",
+          "type": "pdf",
+          "size": "2.8 MB",
+          "hash": "SHA256:D782F11A...",
+          "lineage": [
+            "node_1"
+          ],
+          "createdAt": "2026-07-18T06:30:45Z"
+        }
+      ],
+      "progress": 45,
+      "currentStepIndex": 2,
+      "tokensUsed": 425000,
+      "cost": 1.275,
+      "latency": 18500,
+      "retries": 0,
+      "createdAt": "2026-07-18T06:15:00Z",
+      "updatedAt": "2026-07-18T06:50:00Z",
+      "logs": [
+        "Mission received from workspace event queue.",
+        "Validation succeeded: Spec conforms to enterprise schema layout guidelines.",
+        "Task decomposition complete: Generated 6 executable workflow nodes.",
+        "Resource check: code execution sandbox healthy. Allocated Sentinel & Operator cells.",
+        "Executing Step 1: Decompose Spec & Plan Goals. (Status: COMPLETED, Duration: 1200ms)",
+        "Executing Step 2: Provision Database Nodes. (Status: COMPLETED, Duration: 800ms)",
+        "Executing Step 3: Execute Code Generation. (Status: RUNNING)",
+        "Awaiting manual architectural sign-off on approval checkpoint node_5."
+      ]
+    }
+  ],
+  [
+    "mission_competitor_radar",
+    {
+      "id": "mission_competitor_radar",
+      "name": "Competitor Intellishield Radar",
+      "description": "Polls market research indexes, analyzes competitor patents via search grounding, processes contract clauses, and commits updates to semantic L2 memory cache.",
+      "state": "scheduled",
+      "priority": "high",
+      "workflow": {
+        "id": "wf_competitor_radar",
+        "name": "Intellishield Research Pipeline",
+        "version": "v1.4.2",
+        "nodes": [
+          {
+            "id": "rad_1",
+            "label": "Ground Search Competitor Sites",
+            "type": "sequential",
+            "status": "pending",
+            "assignedAgent": "Research Agent"
+          },
+          {
+            "id": "rad_2",
+            "label": "Extract Threat Matrix Metrics",
+            "type": "sequential",
+            "status": "pending",
+            "assignedAgent": "Sentinel Agent"
+          },
+          {
+            "id": "rad_3",
+            "label": "Analyze Contract Clauses",
+            "type": "sequential",
+            "status": "pending",
+            "assignedAgent": "Code Agent"
+          },
+          {
+            "id": "rad_4",
+            "label": "Sync to L2 Semantic Memory",
+            "type": "sequential",
+            "status": "pending",
+            "assignedAgent": "Operator Agent"
+          }
+        ],
+        "edges": [
+          {
+            "from": "rad_1",
+            "to": "rad_2"
+          },
+          {
+            "from": "rad_2",
+            "to": "rad_3"
+          },
+          {
+            "from": "rad_3",
+            "to": "rad_4"
+          }
+        ]
+      },
+      "triggers": [
+        {
+          "id": "trig_rad_cron",
+          "type": "cron",
+          "value": "0 8 * * *",
+          "isActive": true
+        }
+      ],
+      "approvals": [],
+      "artifacts": [],
+      "progress": 0,
+      "currentStepIndex": 0,
+      "tokensUsed": 0,
+      "cost": 0,
+      "latency": 0,
+      "retries": 0,
+      "createdAt": "2026-07-18T07:00:00Z",
+      "updatedAt": "2026-07-18T07:00:00Z",
+      "logs": [
+        "Mission created via Daily Scheduler.",
+        "Scheduled to run at 2026-07-19T08:00:00Z."
+      ]
+    }
+  ],
+  [
+    "mission_infra_monitor",
+    {
+      "id": "mission_infra_monitor",
+      "name": "Infrastructure Health & Self-Healing",
+      "description": "Monitors endpoint responses, analyzes log anomalies, conducts rollback loops if memory threshold is violated, and emits compliance summary report.",
+      "state": "knowledge_stored",
+      "priority": "critical",
+      "workflow": {
+        "id": "wf_infra_monitor",
+        "name": "Sentinel Auto-Healing Workflow",
+        "version": "v3.0.1",
+        "nodes": [
+          {
+            "id": "inf_1",
+            "label": "Query Gateway Heartbeats",
+            "type": "sequential",
+            "status": "completed",
+            "assignedAgent": "Sentinel Agent",
+            "duration": 350
+          },
+          {
+            "id": "inf_2",
+            "label": "Compute Heap Allocation Slopes",
+            "type": "sequential",
+            "status": "completed",
+            "assignedAgent": "Operator Agent",
+            "duration": 420
+          },
+          {
+            "id": "inf_3",
+            "label": "Validate Isolation Sandboxes",
+            "type": "sequential",
+            "status": "completed",
+            "assignedAgent": "Sentinel Agent",
+            "duration": 1200
+          },
+          {
+            "id": "inf_4",
+            "label": "Synthesize SLA Compliance Report",
+            "type": "sequential",
+            "status": "completed",
+            "assignedAgent": "Architect Agent",
+            "duration": 1200
+          }
+        ],
+        "edges": [
+          {
+            "from": "inf_1",
+            "to": "inf_2"
+          },
+          {
+            "from": "inf_2",
+            "to": "inf_3"
+          },
+          {
+            "from": "inf_3",
+            "to": "inf_4"
+          }
+        ]
+      },
+      "triggers": [
+        {
+          "id": "trig_inf_cron",
+          "type": "cron",
+          "value": "*/5 * * * *",
+          "isActive": true
+        }
+      ],
+      "approvals": [],
+      "artifacts": [
+        {
+          "id": "art_sla_report",
+          "name": "Weekly SLA Assurance Log",
+          "type": "report",
+          "size": "42 KB",
+          "hash": "SHA256:88B9FF01...",
+          "lineage": [
+            "inf_2"
+          ],
+          "createdAt": "2026-07-18T07:15:00Z"
+        }
+      ],
+      "progress": 100,
+      "currentStepIndex": 2,
+      "tokensUsed": 120400,
+      "cost": 0.3612,
+      "latency": 4890,
+      "retries": 1,
+      "createdAt": "2026-07-18T07:10:00Z",
+      "updatedAt": "2026-07-20T06:18:12.943Z",
+      "logs": [
+        "Initiated self-healing active-standby validation sweeps.",
+        "Gateway endpoint http://localhost:3000/api/health responding with 200 OK (latency: 14ms).",
+        "Heap slope analysis: no leak detected. RSS bounds stable.",
+        "Running test matrix over isolation sandboxes.",
+        "[Warning] Dynamic execution check failed: connection timeout on third-party node. Initiating retry protocol.",
+        "[Retry Engine] Retrying step. Budget used: 2. Dispatched execution node retry.",
+        "[Error] Execution blocked: remote rate limit ceiling hit. Moving to BLOCKED state for rate cooling.",
+        "[Audit] Blocked. Waiting for remote endpoint clearance...",
+        "[Self-Healing] Detected blocked buffer queue. Initiating automated healing and path relocation...",
+        "[Self-Healing] Connection successfully restored. Resuming running pipeline...",
+        "Completed Step 3: Validate Isolation Sandboxes. (Duration: 1200ms)",
+        "Executing Step 4: Synthesize SLA Compliance Report. (Status: RUNNING)",
+        "All workflow execution nodes verified. Integrity signatures complete.",
+        "Mission complete. Transitioning state to COMPLETED.",
+        "[Learning Engine] Extracting telemetry metrics...",
+        "[Learning Engine] Formulated reusable playbook template: 'Playbook - Infrastructure Health & Self-Healing'.",
+        "[Learning Engine] Successfully stored new procedure to organization L2 semantic memory."
+      ]
+    }
+  ]
+]
