@@ -1,0 +1,15 @@
+{
+  "name": "@warborn/cortex",
+  "version": "1.0.0",
+  "description": "Central intelligence, context routing, and agent orchestration engine for the Warborn AI Operating System.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "echo \"Building @warborn/cortex...\"",
+    "lint": "echo \"Linting @warborn/cortex...\"",
+    "type-check": "echo \"Type checking @warborn/cortex...\"",
+    "test": "echo \"Running tests for @warborn/cortex...\""
+  },
+  "author": "Warborn Technologies",
+  "license": "MIT"
+}
