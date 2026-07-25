@@ -18,7 +18,7 @@ import {
   INITIAL_TOOLS,
 } from './data';
 import { cortex } from './lib/cortexClient';
-import { BrandRegistry } from '@warborn/branding';
+import { BrandRegistry, BrandAnimationController } from '@warborn/branding';
 import {
   Home as HomeIcon,
   MessageSquare,
@@ -242,14 +242,14 @@ export default function App() {
     }
   }, [brand]);
 
-  const [logoCharIndex, setLogoCharIndex] = useState<number>(0);
-  const logoChars = ['W', 'A', 'R', 'B', 'O', 'R', 'N'];
+  // Subscribed global logo character animation cycle state
+  const [logoCharIndex, setLogoCharIndex] = useState(BrandAnimationController.getCurrentIndex());
+  const logoChars = BrandAnimationController.getSequence();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setLogoCharIndex((prev) => (prev + 1) % logoChars.length);
-    }, 1200); // 1.2s creates a smooth, highly rhythmic cycle
-    return () => clearInterval(interval);
+    return BrandAnimationController.subscribe((char, index) => {
+      setLogoCharIndex(index);
+    });
   }, []);
 
   // Core Data States
@@ -1055,7 +1055,8 @@ export default function App() {
           {/* Design System Authenticated Brand Mark logo box */}
           <div className={`p-6 flex items-center gap-3 border-b shrink-0 ${isDark ? 'border-white/5' : 'border-black/5'}`}>
             <motion.div
-              className={`w-9 h-9 flex items-center justify-center rounded-sm shrink-0 cursor-pointer overflow-hidden ${isDark ? 'bg-white' : 'bg-black'}`}
+              id="cortex-brand-logo-box"
+              className="w-9 h-9 flex items-center justify-center rounded-sm shrink-0 cursor-pointer overflow-hidden"
               whileHover={{ rotate: 180, scale: 1.15 }}
               whileTap={{ scale: 0.9 }}
               animate={{
@@ -1072,14 +1073,15 @@ export default function App() {
             >
               <AnimatePresence mode="wait">
                 <motion.span
+                  id="cortex-brand-logo-letter"
                   key={logoCharIndex}
                   initial={{ opacity: 0, y: 10, scale: 0.7 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.7 }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className={`font-mono font-black text-[17px] tracking-tight flex items-center justify-center ${isDark ? 'text-black' : 'text-white'}`}
+                  className="font-mono font-black text-[17px] tracking-tight flex items-center justify-center"
                 >
-                  {brand.logo}
+                  {logoChars[logoCharIndex]}
                 </motion.span>
               </AnimatePresence>
             </motion.div>
