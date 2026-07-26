@@ -18,7 +18,7 @@ import {
   INITIAL_TOOLS,
 } from './data';
 import { cortex } from './lib/cortexClient';
-import { BrandRegistry, BrandAnimationController } from '@warborn/branding';
+import { BrandRegistry, BrandAnimationController } from './lib/branding';
 import {
   Home as HomeIcon,
   MessageSquare,
