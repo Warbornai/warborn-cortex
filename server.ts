@@ -33,7 +33,7 @@ const pluginRuntime = new PluginRuntime();
 const healthManager = new HealthCheckManager();
 const metrics = new MetricsCollector();
 app.locals.metrics = metrics;
-const PORT = 3000;
+const PORT = 3001;
 
 // Initialize central Integration Engine for Sprint 3
 const integrationEngine = new IntegrationEngine();
